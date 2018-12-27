@@ -1,0 +1,41 @@
+/* --------------------------------------------------------
+StyleSheet "glossario" desktop
+autore: Michele Caligiuri
+website: https://michelecaligiuri.altervista.org
+----------------------------------------------------------*/
+* {box-sizing: border-box; } /* Responsive */
+
+@media (min-width:1200px) {
+    /* Macro contenitore contenuti */
+    .corpo {
+        width: 100%;
+        font-size: 16px;
+        margin: 0 auto;
+    }
+    /* Nascondo il menù hamburger */
+    header #mnu { display: none !important;}
+    header h1 { text-align: center;} /* Intestazione centrata */
+    /* Materie */
+    .matside {
+        display: block !important;
+        padding-top: 10px;
+        width: 20% !important;
+        height: auto;
+        max-height: 768px;
+        top: 10%;
+        left: 0.5%;
+        border-radius: 12px;
+        opacity: 0.9;
+        border: 1px solid #f89920;
+    }
+    .matside .btnchiudi { display: none !important; }
+    #mat h4 {
+        font-size: 20px;
+        width: 50%;
+        margin: 0 auto;
+    }
+    /* Dimensioni div argomenti, termini, definizioni */
+    #arg,#term,#cont { width: 35%; }
+    /* Pdp */
+    footer { padding: 5px;}
+}

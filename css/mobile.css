@@ -1,19 +1,25 @@
-* { box-sizing: border-box; }
-
+/* --------------------------------------------------------
+StyleSheet "glossario" mobile
+autore: Michele Caligiuri
+website: https://michelecaligiuri.altervista.org
+----------------------------------------------------------*/
+* { box-sizing: border-box; } /* Responsive*/
+/* dom */
 body,html {
     margin: 0px;
     padding: 0px;
     font-family: 'Open Sans', sans-serif;
     background-color: #191d29;
 }
+/* Macro contenitore dei contenuti */
 .corpo {
     margin-top:-22px;
-    height: 812px;
+    height: 900px;
     background: url("../images/sfondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+/* Titolo, menù "hamburger" */
 header h1,#mnu {
     padding: 0.2em;
     color: whitesmoke;
@@ -21,16 +27,37 @@ header h1,#mnu {
 header #mnu {
     float: right;
 }
-
 header #mnu:hover {
     color: #fff;
     background-color: #f89920;
     transition: 0.3s;
 }
-
+/* Barra di navigazione */
+nav {
+    width: 100%;
+    text-align: center;
+    padding: 0.3em;
+}
+nav a {
+    text-decoration: none;
+    margin-left: 0.5em;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 0.5em !important;
+    color: #000;
+    opacity: 0.8;
+}
+nav a:hover {
+    background-color: #f89920;
+    color: whitesmoke;
+    opacity: 1;
+    transition: 0.5s;
+}
+nav a span { font-family: 'Open Sans', sans-serif; } /* Carattere testo vicino a icone */
+/* Materie */
 .matside {
     position: fixed;
-    padding-top: 60px;
+    padding-top: 45px;
     top: 0;
     left: 0;
     width: 0;
@@ -40,16 +67,14 @@ header #mnu:hover {
     background-color: #191d29;
     transition: 0.5s;
 }
-
 .matside .btnchiudi {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 10px;
     font-size: 36px !important;
     margin-left: 50px;
     text-decoration: none;
 }
-
 #mat a {
     display: block;
     cursor: pointer;
@@ -57,21 +82,25 @@ header #mnu:hover {
     font-size: 17px;
     color: #fff;
 }
-
 #mat a:hover {
     background-color: whitesmoke;
     color: #000;
     transition: 0.3s;
 }
-
+#mat h4 {
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+    background-color: #f89920;
+}
 .btnchiudi:hover {
     background-color: #191d29 !important;
     color: #f89920 !important;
 }
-
+/* Div coi contenuti (argomenti, termini, definizioni) */
 #arg,#term,#cont {
     border-radius: 10px;
-    width: 90%;
+    width: 95%;
     padding: 0.5em;
     background-color: whitesmoke; 
     margin: 0 auto;
@@ -79,7 +108,6 @@ header #mnu:hover {
     opacity: 0.9;
     overflow-y: auto;
 }
-
 #arg a, #term a {
     border: 1px solid #ddd;
     margin-top: -1px;
@@ -90,7 +118,6 @@ header #mnu:hover {
     color: black;
     display: block;
 }
-
 #arg a:hover, #term a:hover {
     background-color: #f89920;
     border: none;
@@ -102,7 +129,7 @@ header #mnu:hover {
     display: none; 
     max-height: 250px;
 }
-
+/* Caselle di ricerca per filtrare argomenti e/o termini */
 #cerca, #cercat {
     background-image: url('../images/search.png');
     background-position: 5px 0px;
@@ -117,21 +144,19 @@ header #mnu:hover {
     border: 1px solid #f89920;
     transition: 0.3s;
 }
-
+/* Pdp */
 #block {
-    height: 100px;
+    height: 25px;
     background-color: #191d29;
-    padding: 12px;
+    padding: 0px;
 }
 footer {
-    position: sticky;
-    margin-top: 100px;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #f89920;
     color: white;
     text-align: center;
-    padding: 12px;
-    opacity: 0.6;
+    opacity: 0.9;
  }
