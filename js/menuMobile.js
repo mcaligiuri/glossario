@@ -1,9 +1,20 @@
 function apri()
 {
-   document.getElementById("mat").style.width = "250px";
+    var mnu,mat;
+    mat = document.getElementById("mat");
+    mnu = document.getElementById("mnu");
+    mat.style.width = "250px";
+    mnu.style.display = "none";
 }
 
 function chiudi()
 {
-    document.getElementById("mat").style.width = "0px";
+    mat = document.getElementById("mat");
+    mnu = document.getElementById("mnu");
+
+    if(window.matchMedia("(max-width: 800px)")) 
+    {
+        mat.style.width = "0px"
+        mnu.style.display = "block";
+    }
 }
