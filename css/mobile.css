@@ -4,13 +4,6 @@ autore: Michele Caligiuri
 website: https://michelecaligiuri.altervista.org
 ----------------------------------------------------------*/
 * { box-sizing: border-box; } /* Responsive*/
-/* dom */
-body,html {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #191d29;
-}
 /* Macro contenitore dei contenuti */
 .corpo {
     margin-top:-22px;
@@ -24,36 +17,12 @@ header h1,#mnu {
     padding: 0.2em;
     color: whitesmoke;
 }
-header #mnu {
-    float: right;
-}
+header #mnu { float: right; }
 header #mnu:hover {
     color: #fff;
     background-color: #f89920;
     transition: 0.3s;
 }
-/* Barra di navigazione */
-nav {
-    width: 100%;
-    text-align: center;
-    padding: 0.3em;
-}
-nav a {
-    text-decoration: none;
-    margin-left: 0.5em;
-    background-color: whitesmoke;
-    border-radius: 5px;
-    padding: 0.5em !important;
-    color: #000;
-    opacity: 0.8;
-}
-nav a:hover {
-    background-color: #f89920;
-    color: whitesmoke;
-    opacity: 1;
-    transition: 0.5s;
-}
-nav a span { font-family: 'Open Sans', sans-serif; } /* Carattere testo vicino a icone */
 /* Materie */
 .matside {
     position: fixed;
@@ -128,21 +97,6 @@ nav a span { font-family: 'Open Sans', sans-serif; } /* Carattere testo vicino a
 #arg,#term { 
     display: none; 
     max-height: 250px;
-}
-/* Caselle di ricerca per filtrare argomenti e/o termini */
-#cerca, #cercat {
-    background-image: url('../images/search.png');
-    background-position: 5px 0px;
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 14px;
-    padding:12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 3px;
-}
-#cerca:focus, #cercat:focus {
-    border: 1px solid #f89920;
-    transition: 0.3s;
 }
 /* Pdp */
 #block {

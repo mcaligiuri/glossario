@@ -2,11 +2,10 @@
 function getArgomenti(codm,mat)
 {
   // Variabili
-  var cont, termini,argomenti,mnu;
+  var cont, termini,argomenti;
   termini = document.getElementById("term");
   argomenti = document.getElementById("arg");
   cont = document.getElementById("cont");
-  mnu = document.getElementById("mnu");
 
   // Chiudo barra di navigazione
   chiudi();
@@ -64,5 +63,27 @@ function getDef(idt)
     }
   };
   xmlhttp.open("GET", "def.php?idt="+ idt, true);
+  xmlhttp.send();
+}
+
+// Pagina delle info
+function getInfo(page)
+{
+  var cont,arg,term;
+  term = document.getElementById("term");
+  arg = document.getElementById("arg");
+  cont = document.getElementById("cont");
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() 
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      cont.style.display = "block";
+      arg.style.display = "none";
+      term.style.display = "none";
+      cont.innerHTML = this.responseText;
+    }
+  };
+  xmlhttp.open("GET",page, true);
   xmlhttp.send();
 }

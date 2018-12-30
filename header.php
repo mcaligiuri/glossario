@@ -1,10 +1,10 @@
 <header>
-    <h1>Glossario<a class="fa fa-bars" id="mnu" onclick="apri()"></a></h1>
+    <h1 title="Glossario">Glossario<a title="menù mobile" class="fa fa-bars" id="mnu" onclick="apri()"></a></h1>
     <!-- Menù di navigazione -->
     <nav>
-    <a href="./" class="fa fa-home" style="font-size: 18px;"><span> Home</span></a>
-    <a href="index.php" class="fa fa-info-circle" style="font-size: 18px;"><span> Info</span></a>
-    <a href="./amministra" class="fa fa-key" style="font-size: 18px;"><span> Admin</span></a>
+    <a href="./" title="Ricarica la homepage" class="fa fa-home" style="font-size: 18px;"><span> Home</span></a>
+    <a onclick="getInfo('info.php');" title="Mostra delle info" class="fa fa-info-circle" style="font-size: 18px;"><span> Info</span></a>
+    <a href="./amministra" target="_blank" title="Accedi come amministratore" class="fa fa-key" style="font-size: 18px;"><span> Admin</span></a>
     </nav>
     <!-- Materie -->
     <div id="mat" class="matside">
@@ -15,13 +15,13 @@
         if($righe->num_rows == 0)
             die("Nessuna materia, aggiungine una");
         
-        echo "<h4>Materie</h4>\n";
+        echo "<h4 title='Materie'>Materie</h4>\n";
         while($riga = $righe->fetch_assoc())
         {
             $idm = $riga['idm'];
             $mat = $riga['materia'];
             //echo "<a href='index.php?codm=$idm'>".$riga["materia"]."</a>\n";
-            echo "<a onclick=\"getArgomenti('$idm','$mat')\">".$mat."</a>\n";
+            echo "<a title='$mat' onclick=\"getArgomenti('$idm','$mat')\">".$mat."</a>\n";
         }
         ?>
     </div>

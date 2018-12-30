@@ -1,3 +1,4 @@
+// Apro menù mobile
 function apri()
 {
     var mnu,mat;
@@ -7,6 +8,7 @@ function apri()
     mnu.style.display = "none";
 }
 
+// Chiudo menù mobile
 function chiudi()
 {
     mat = document.getElementById("mat");

@@ -15,7 +15,7 @@ if(!empty($_GET['codm']) || empty($_GET['mat']))
     {
         $ida = $riga['ida'];
         $arg = $riga['argomento'];
-        echo "<a onclick=\"getTermini('$ida','$mat','$arg')\">".$riga["argomento"]."</a>\n";
+        echo "<a title='$arg' onclick=\"getTermini('$ida','$mat','$arg')\">".$riga["argomento"]."</a>\n";
     }
 }
 include "dbconfig/dbclose.php";

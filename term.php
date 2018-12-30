@@ -16,7 +16,7 @@ if(!empty($_GET['coda']))
     {
         $idt = $riga['idt'];
         $term = $riga["termine"];
-        echo "<a onclick=\"getDef('$idt')\">".$term."</a>\n";
+        echo "<a title='$term' onclick=\"getDef('$idt')\">".$term."</a>\n";
         //echo "<a>".$riga['termine']."</a>";
     }
 }
