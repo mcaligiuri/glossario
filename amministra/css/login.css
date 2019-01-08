@@ -1,0 +1,103 @@
+* { box-sizing: border-box; font-family: 'Open Sans', sans-serif;}
+/* dom */
+body,html {
+    margin: 0px;
+    padding: 0px;
+    background-color: #191d29;
+}
+.corpo {
+    width: 100%;
+    height: 400px;
+    background: url("../../images/sfondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left,bottom;
+    margin: 0 auto;
+}
+.form {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    padding:16px;
+    border-radius: 100%;
+    background-color: #f2f2f2;
+    margin: 0 auto;
+    margin-top: 20%;
+    opacity: 0.9;
+}
+form {
+    width: 100%;
+    margin-top: 20%;
+    padding: 12px;
+}
+form #msg {
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    width: 100%;
+}
+form input[type=text],input[type=password] {
+    padding: 0.7em;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    margin-top: 18px;
+    background-color: #f2f2f2;
+    text-align: left;
+}
+form input[type=text]:focus,input[type=password]:focus {
+    border-bottom: 1px solid #f89920;
+    transition: 0.5s;
+}
+form input[type=text]::placeholder,input[type=password]::placeholder { 
+    /* Allineo al centro solo il testo dell'attributo placeholder, Firefox*/
+    text-align: center; 
+}
+form input[type=text]::-ms-input-placeholder,input[type=password]::-ms-input-placeholder { 
+    /* Allineo al centro solo il testo dell'attributo placeholder, Edge*/
+    text-align: center; 
+}
+form input[type=submit],input[type=reset] {
+    margin-top: 12px;
+    height: 60px;
+    width: 60px;
+    padding: 0.3em;
+    border: 2px solid black;
+    font-weight: bolder;
+    background-color: #fff; 
+    border-radius: 100%;
+}
+input[type=reset] { 
+    float: right; 
+    margin-left: 60%;
+}
+form input[type=submit]:hover,input[type=reset]:hover {
+    border: none;
+    color: #fff;
+    background-color: #f89920;
+    transition: 0.5s;
+    cursor: pointer;
+}
+/* Telefoni in landscape */
+@media only screen and (orientation: landscape) {
+    .form {
+        width: 400px;
+        margin-left: 20%;
+        margin-top: 6px;
+        padding: 10px;
+    }
+}
+/* Desktop */
+@media only screen and (min-width: 1200px)  {
+    .corpo {
+        height: 800px;
+        width: 100%;
+        overflow-y: hidden;
+    }
+    .form {
+        margin-left: 40%;
+        margin-top: 150px;
+        padding: 20px;
+    }
+    form input[type=text],input[type=password] { padding: 1em; }
+}
