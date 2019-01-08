@@ -1,19 +1,21 @@
 <?php
+if(empty($_GET['idt']))
+    header('Location:./');
+
 include "dbconfig/dbopen.php";
-if(!empty($_GET['idt']))
+$idt = $_GET['idt'];
+//$term = ucfirst($_GET['term']);
+$sql = "SELECT definizione,termine FROM $ter WHERE idt=$idt";
+$righe = $dbconn->query($sql);
+if($righe->num_rows == 0)
 {
-    $idt = $_GET['idt'];
-    //$term = ucfirst($_GET['term']);
-    $sql = "SELECT definizione,termine FROM $ter WHERE idt=$idt";
-    $righe = $dbconn->query($sql);
-    if($righe->num_rows == 0)
-        die("Nessuna definizione");
-    
-    while($riga = $righe->fetch_assoc())
-    {
-        echo "<h4>".$riga['termine']."</h4>";
-        echo "<p>". $riga['definizione']."</p>";
-    }
+    include "dbconfig/dbclose.php";
+    die("Nessuna definizione");
+}
+while($riga = $righe->fetch_assoc())
+{
+    echo "<h4>".$riga['termine']."</h4>";
+    echo "<p>". $riga['definizione']."</p>";
 }
 include "dbconfig/dbclose.php";
 ?>
