@@ -1,0 +1,137 @@
+* { box-sizing: border-box; font-family: 'Open Sans', sans-serif;} /* Responsive*/
+
+html,body {
+    background-color: #191d29;
+    margin: 0px;
+    padding: 0px;
+}
+/* Header */
+header h2 {
+    color: whitesmoke;
+    padding: 0.3em;
+}
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,0.4);
+}
+.popup #popcont {
+   position: relative;
+   background-color: #fefefe;
+   margin: auto;
+   padding: 2px 16px;
+   width: 75%;
+   max-width: 375px;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.popup #pophead, .popup #popcom {
+   padding: 4px 16px;
+   background-color: #191d29;
+   color: white;
+   width: 75%;
+   max-width: 375px;
+   margin: auto;
+}
+#pophead {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+#popcom {
+    text-align: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+#popcom button {
+    padding: 0.3em;
+    border: none;
+    background-color: whitesmoke;
+    width: 50px;
+    height: 30px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+#popcom button:hover {
+    background-color: #f89920;
+    color: #fff;
+    transition: 0.5s;
+}
+#arg,#ter,#def { display: none; }
+/* Bottoni e caselle di testo*/
+#btnins { color: green; }
+#btndel {color: darkred;}
+#btnmod:hover {
+    color: #f89920;
+    transition: 0.5s;
+}
+#insmat,#insarg {
+    padding: 0.5em;
+    border: none;
+    background-color: #f6f6f6;
+    border-bottom: 2px solid #ccc;
+}
+#insmat:focus,#insarg:focus {
+    border-bottom: 2px solid #f89920;
+    transition: 0.5s;
+}
+#lnkmat:hover,#lnkarg:hover,#lnkter:hover {
+    color: #f89920;
+    cursor: pointer;
+    transition: 0.5s;
+}
+/* Pdp */
+#block {
+    height: 25px;
+    background-color: #191d29;
+    padding: 0px;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f89920;
+    color: white;
+    text-align: center;
+    opacity: 0.9;
+ }
+ #btnmod,#btnins,#btndel { 
+     font-size: 20px; 
+     cursor: pointer;
+}
+/* Update su materie e argomenti*/
+#txtupd {
+    padding: 0.3em;
+    border-radius: 4px;
+    border: 1px solid #000;
+}
+#txtupd:focus {
+    border: 1px solid #f89920;
+    transition: 0.5s;
+}
+#btnupd,#ind {
+    margin-left: 4px;
+    border-radius: 4px;
+    background-color: #f89920;
+    color: whitesmoke;
+    border: none;
+    padding: 0.3em;
+}
+#btnupd:hover,#ind:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    cursor: pointer;
+    transition: 0.5s;
+}
+ /* Landscape */
+ @media only screen and (orientation: landscape) {
+    #block { padding: 5em; }
+    footer { padding: 0.2em; }
+}

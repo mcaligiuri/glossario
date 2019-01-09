@@ -1,7 +1,7 @@
 <?php
 include "../../dbconfig/dbopen.php";
 
-$sql = "SELECT * FROM $mat";
+$sql = "SELECT * FROM $mat ORDER BY materia";
 $righe = $dbconn->query($sql);
 //echo "<h3>Materie</h3>\n";
 if($righe->num_rows == 0)

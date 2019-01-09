@@ -2,7 +2,7 @@
 if(!isset($_GET['nome']) || !isset($_GET['id']) || !isset($_GET['tipo']))
     header('Location:../');
 $id = $_GET['id'];
-$nome = $_GET['nome'];
+$nome = addslashes($_GET['nome']);
 $tipo = $_GET['tipo'];
 
 if($tipo == "mat")

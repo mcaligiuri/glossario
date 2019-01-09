@@ -4,8 +4,8 @@
 
 include "../../dbconfig/dbopen.php";
 $codm = $_GET['codm'];
-$nome = $_GET['mat'];
-$sql = "SELECT ida,argomento FROM $arg WHERE codm=$codm";
+$nome = addslashes($_GET['mat']);
+$sql = "SELECT ida,argomento FROM $arg WHERE codm=$codm ORDER BY argomento";
 $righe = $dbconn->query($sql);
 echo "<table>\n";
 echo "<tr><td id='thead'><h3>Argomenti di $nome</h3></td>\n";

@@ -1,0 +1,98 @@
+/* --------------------------------------------------------
+StyleSheet "glossario" backend mobile
+autore: Michele Caligiuri
+website: https://michelecaligiuri.altervista.org
+----------------------------------------------------------*/
+.corpo {
+    margin-top: -21px;
+    height: auto;
+    max-height: 900px;
+    background:url("../../images/sfondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header h2 { text-align: left; }
+/* Barra di navigazione a scomparsa */
+header nav {
+    position: fixed;
+    padding-top: 45px;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: 1;
+    overflow-x: hidden;
+    background-color: #191d29;
+    transition: 0.5s;
+}
+header #btnmnu {
+    float: right;
+    padding: 0.2em;
+}
+header nav a {
+    display: block;
+    cursor: pointer;
+    padding: 8px 8px 8px 32px;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+header nav #btnchiudi {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-decoration: none;
+}
+/* Div coi contenuti (argomenti, termini, definizioni) */
+#arg,#mat,#ter,#def {
+    border-radius: 10px;
+    width: 95%;
+    padding: 0.3em;
+    background-color: whitesmoke; 
+    margin: 0 auto;
+    margin-top: 0.5em;
+    opacity: 0.9;
+    height: auto;
+    height: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+}
+#mat table,#arg table, #ter table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#mat th, #mat td,#arg th, #arg td,#ter th, #ter td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+#arg table #thead,#ter table #thead {border: none; padding: 0px;}
+#lnkmat,#lnkarg,#lnkter {
+    width: 100%;
+    padding: 8px;
+}
+#insterm,#insdef,#termdef,#termt {
+    padding: 0.5em;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin: 0.5em;
+}
+#insdef,#termdef {
+    height: 80px;
+    font-size: 12px;
+    resize: none;
+}
+#def { 
+    text-align: center;
+    padding: 0.7em;
+}
+#def #insdef {  display: block;}
+#def #btnupd, #def #ind {
+    display: block;
+    max-width: 75px;
+    margin: 0 auto;
+}

@@ -5,7 +5,7 @@
 include "../../dbconfig/dbopen.php";
 $idt = $_GET['idt'];
 $coda = $_GET['coda'];
-$argo = $_GET['arg'];
+$argo = addslashes($_GET['arg']);
 $sql = "SELECT termine,definizione FROM $ter WHERE idt=$idt";
 $righe = $dbconn->query($sql);
 echo "<a id='ind' onclick='showTer();'>indietro</a>";
@@ -18,7 +18,7 @@ while($riga = $righe->fetch_assoc())
     $def = $riga['definizione'];
     echo "<input id='termt' type=\"text\" value='$term'>\n";
     echo "<textarea id='termdef'>$def</textarea>\n";
-    echo "<a onclick=\"updTerm('$idt','$coda','$argo');\">Salva</a>";
+    echo "<a id='btnupd' onclick=\"updTerm('$idt','$coda','$argo');\">Salva</a>";
 }
 include "../../dbconfig/dbclose.php";
 ?>

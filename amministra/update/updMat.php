@@ -3,7 +3,7 @@ if (!isset($_GET['idm']) || !isset($_GET['mat']))
     header('Location:../');
 
 $idm = $_GET['idm'];
-$nome = $_GET['mat'];
+$nome = addslashes($_GET['mat']);
 
 include "../../dbconfig/dbopen.php";
 

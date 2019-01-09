@@ -1,3 +1,9 @@
+/* --------------------------------------------------------
+StyleSheet "glossario" login
+autore: Michele Caligiuri
+idea form circolare: Federico Barbero
+website: https://michelecaligiuri.altervista.org
+----------------------------------------------------------*/
 * { box-sizing: border-box; font-family: 'Open Sans', sans-serif;}
 /* dom */
 body,html {
@@ -7,6 +13,7 @@ body,html {
 }
 .corpo {
     width: 100%;
+    position: fixed;
     height: 400px;
     background: url("../../images/sfondo.jpg");
     background-repeat: no-repeat;
@@ -92,7 +99,7 @@ form input[type=submit]:hover,input[type=reset]:hover {
     .corpo {
         height: 800px;
         width: 100%;
-        overflow-y: hidden;
+        overflow-y: auto;
     }
     .form {
         margin-left: 40%;

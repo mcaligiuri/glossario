@@ -4,8 +4,8 @@ if (!isset($_GET['idt']) || !isset($_GET['coda']) || !isset($_GET['term']) || !i
 
 $idt = $_GET['idt'];
 $coda = $_GET['coda'];
-$term = $_GET['term'];
-$def = $_GET['def'];
+$term = addslashes($_GET['term']);
+$def = addslashes($_GET['def']);
 
 include "../../dbconfig/dbopen.php";
 $sql = "UPDATE $ter SET termine='$term',definizione='$def',coda='$coda' WHERE idt=$idt";
