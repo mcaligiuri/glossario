@@ -14,7 +14,8 @@ if($righe->num_rows == 0)
     include "dbconfig/dbclose.php";
     die("Nessun termine trovato");
 }
-echo "<h4>".$mat . ' - ' . $arg . "</h4>";
+echo "<table><tr><td><h4>".$mat . ' - ' . $arg . "</h4></td>\n";
+echo "<td><button id='ind' onclick='showArg()'>indietro</button></td></tr></table>\n";
 while($riga = $righe->fetch_assoc())
 {
     $idt = $riga['idt'];

@@ -14,8 +14,9 @@ if($righe->num_rows == 0)
 }
 while($riga = $righe->fetch_assoc())
 {
-    echo "<h4>".$riga['termine']."</h4>";
-    echo "<p>". $riga['definizione']."</p>";
+    echo "<table><tr><td><h4>".$riga['termine']."</h4></td>\n";
+    echo "<td><button id='ind' onclick='showTerm()'>indietro</button></td></tr></table>\n";
+    echo "<p>". $riga['definizione']."</p>\n";
 }
 include "dbconfig/dbclose.php";
 ?>

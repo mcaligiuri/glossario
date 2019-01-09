@@ -20,3 +20,25 @@ function chiudi()
         mnu.style.display = "block";
     }
 }
+
+// Mostro e nascondo al click del
+// pulsante indietro
+function showTerm()
+{
+    var def,term;
+    def = document.getElementById("cont");
+    term = document.getElementById("term");
+
+    def.style.display = "none";
+    term.style.display = "block";
+}
+
+function showArg()
+{
+    var ter,arg;
+    ter = document.getElementById("term");
+    arg = document.getElementById("arg");
+
+    ter.style.display = "none";
+    arg.style.display = "block";
+}

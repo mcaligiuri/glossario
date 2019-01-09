@@ -33,13 +33,15 @@ function getArgomenti(codm,mat)
 // Richiedo termini in background alla pagina PHP
 function getTermini(coda,mat,arg)
 {
-  var termini;
+  var termini, argomenti;
   termini = document.getElementById("term");
+  argomenti = document.getElementById("arg");
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() 
   {
     if (this.readyState == 4 && this.status == 200) 
     {
+      argomenti.style.display = "none";
       termini.style.display = "block";
       termini.innerHTML = this.responseText;
     }
@@ -52,6 +54,7 @@ function getTermini(coda,mat,arg)
 function getDef(idt)
 {
   var cont;
+  termini = document.getElementById("term");
   cont = document.getElementById("cont");
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() 
@@ -59,6 +62,7 @@ function getDef(idt)
     if (this.readyState == 4 && this.status == 200)
     {
       cont.style.display = "block";
+      termini.style.display = "none";
       cont.innerHTML = this.responseText;
     }
   };

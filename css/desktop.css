@@ -3,14 +3,15 @@ StyleSheet "glossario" desktop
 autore: Michele Caligiuri
 website: https://michelecaligiuri.altervista.org
 ----------------------------------------------------------*/
-* {box-sizing: border-box; } /* Responsive */
-
-@media (min-width:1200px) {
+@media (min-width:900px) {
     /* Macro contenitore contenuti */
     .corpo {
         width: 100%;
         font-size: 16px;
         margin: 0 auto;
+        position: fixed;
+        overflow-y: auto;
+        height: 100%;
     }
     /* Nascondo il menù hamburger */
     header #mnu { display: none !important;}
@@ -19,10 +20,11 @@ website: https://michelecaligiuri.altervista.org
     .matside {
         display: block !important;
         padding-top: 10px;
-        width: 20% !important;
+        width: 25% !important;
         height: auto;
+        max-width: 300px;
         max-height: 768px;
-        top: 10%;
+        top: 15%;
         left: 0.5%;
         border-radius: 12px;
         opacity: 0.9;
@@ -35,7 +37,12 @@ website: https://michelecaligiuri.altervista.org
         margin: 0 auto;
     }
     /* Dimensioni div argomenti, termini, definizioni */
-    #arg,#term,#cont { width: 35%; }
+    #arg,#term,#cont {
+        overflow-y: auto;
+        width: 40%;
+        max-width:600px;
+        max-height: 400px;
+    }
     /* Pdp */
-    footer { padding: 5px;}
+    footer { padding: 1px; position: fixed;}
 }

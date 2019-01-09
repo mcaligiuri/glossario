@@ -3,17 +3,17 @@ StyleSheet "glossario" mobile
 autore: Michele Caligiuri
 website: https://michelecaligiuri.altervista.org
 ----------------------------------------------------------*/
-* { box-sizing: border-box; } /* Responsive*/
 /* Macro contenitore dei contenuti */
 .corpo {
     margin-top:-22px;
-    height: 900px;
+    height: auto;
+    max-height: 900px;
     background: url("../images/sfondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 /* Titolo, menù "hamburger" */
-header h1,#mnu {
+header a h1,#mnu {
     padding: 0.2em;
     color: whitesmoke;
 }
@@ -70,12 +70,15 @@ header #mnu:hover {
 #arg,#term,#cont {
     border-radius: 10px;
     width: 95%;
-    padding: 0.5em;
+    padding: 0.3em;
     background-color: whitesmoke; 
     margin: 0 auto;
-    margin-top: 0.3em;
+    margin-top: 0.2em;
     opacity: 0.9;
     overflow-y: auto;
+    height: auto;
+    max-height: 400px;
+    z-index: 1;
 }
 #arg a, #term a {
     border: 1px solid #ddd;
@@ -96,7 +99,7 @@ header #mnu:hover {
 }
 #arg,#term { 
     display: none; 
-    max-height: 250px;
+    height: auto;
 }
 /* Pdp */
 #block {
@@ -113,4 +116,12 @@ footer {
     color: white;
     text-align: center;
     opacity: 0.9;
+ }
+ /* Landscape */
+ @media only screen and (orientation: landscape) {
+     #block { padding: 0.5em; }
+     footer {
+         position: relative;
+         padding: 0.2em;
+     }
  }
