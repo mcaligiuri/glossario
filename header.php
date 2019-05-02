@@ -1,3 +1,4 @@
+<!-- INTESTAZIONE -->
 <header>
     <h1 title="Glossario"><a href="./">Glossario</a><a title="menù mobile" class="fa fa-bars" id="mnu" onclick="apri()"></a></h1>
     <!-- Menù di navigazione -->
