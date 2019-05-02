@@ -1,3 +1,4 @@
+<!-- Pagina delle info -->
 <div id="info">
     <h3 title="Info">Info</h3>
     <p>L'idea del glossario nacque da un progetto di scuola diretto dal professor Lorenzini. Lo scopo dell'attività era creare delle pagine
