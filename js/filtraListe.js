@@ -1,3 +1,4 @@
+// Funzioni per eseguire una ricerca rapida nelle varie liste
 function getElem(val) 
 {
     var term,cont;
