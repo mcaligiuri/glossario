@@ -11,7 +11,7 @@
     <title>Glossario - Login</title>
 </head>
 <body>
-    <div class="corpo">
+    <div class="corpo"> <!-- Macro contenitore della login -->
         <?php include "form.php"; ?>
     </div>
 </body>
