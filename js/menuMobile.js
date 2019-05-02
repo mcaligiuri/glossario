@@ -33,6 +33,7 @@ function showTerm()
     term.style.display = "block";
 }
 
+// Mostro argomenti, nascondo i termini
 function showArg()
 {
     var ter,arg;
