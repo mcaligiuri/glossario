@@ -7,5 +7,5 @@ $dbconn = new mysqli($dbhost,$dbuser,$dbpass, $dbname);
 if($dbconn->connect_error)
     die("Errore Mysql: N°". $dbconn->connect_errno . "-" . $dbconn->connect_error);
 
-$dbconn->set_charset("UTF8");
+$dbconn->set_charset("UTF8"); // Codifica
 ?>
