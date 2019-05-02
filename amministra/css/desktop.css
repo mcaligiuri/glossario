@@ -3,7 +3,7 @@ StyleSheet "glossario", backend desktop
 autore: Michele Caligiuri
 website: https://michelecaligiuri.altervista.org
 ----------------------------------------------------------*/
-@media (min-width:1200px) {
+@media (min-width:1200px) { /* Media query */
 .corpo {
     width: 100%;
     font-size: 16px;
