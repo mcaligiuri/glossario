@@ -17,7 +17,7 @@ if($righe->num_rows == 0)
 while($riga = $righe->fetch_assoc())
 {
     $passdb = $riga['password'];
-    // Password errata
+    // Password errata (confronto in codifica MD5)
     if(md5($pass) != $passdb)
     {
         include "../../dbconfig/dbclose.php";
