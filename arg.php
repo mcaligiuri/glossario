@@ -1,4 +1,5 @@
 <?php
+// Argomenti
 echo "<input type='text' id='cerca' onkeyup='getElem(1)' placeholder='Cerca argomento...'>";
 if(empty($_GET['codm']) || empty($_GET['mat']))
     header('Location:./');
