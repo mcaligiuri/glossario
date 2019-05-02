@@ -1,3 +1,4 @@
+<!-- Struttura della login -->
 <div class="form" id="form">
     <form onsubmit="setLogin(); return false;">
         <p id="msg"></p>
