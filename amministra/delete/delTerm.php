@@ -1,5 +1,5 @@
 <?php
-if(!isset($_GET['idt']))
+if(!isset($_GET['idt'])) // Controllo
     header('Location:../');
 
 $idt = $_GET['idt'];
