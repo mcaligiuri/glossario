@@ -1,4 +1,5 @@
 <?php
+// TERMINI
 echo "<input type='text' id='cercat' onkeyup='getElem(2)' placeholder='Cerca termine...'>";
 if(empty($_GET['coda']))
     header('Location:./');
