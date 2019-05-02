@@ -4,7 +4,7 @@ autore: Michele Caligiuri
 idea form circolare: Federico Barbero
 website: https://michelecaligiuri.altervista.org
 ----------------------------------------------------------*/
-* { box-sizing: border-box; font-family: 'Open Sans', sans-serif;}
+* { box-sizing: border-box; font-family: 'Open Sans', sans-serif;} /* Responsive */
 /* dom */
 body,html {
     margin: 0px;
