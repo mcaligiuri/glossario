@@ -1,3 +1,6 @@
+// Eseguo inserimenti nel database richiamando le specifiche pagine php in background
+
+// Materie
 function insMat()
 {
     var mat = document.getElementById("insmat").value;
@@ -15,7 +18,7 @@ function insMat()
             div.innerHTML = getMaterie();
     } 
 }
-
+// Argomenti
 function insArg(codm,mat)
 {
     var arg = document.getElementById("insarg").value;
@@ -33,7 +36,7 @@ function insArg(codm,mat)
             div.innerHTML = getArg(codm,mat);
     } 
 }
-
+// Termini
 function insTerm(coda,arg)
 {
     var tit = document.getElementById("insterm").value;
