@@ -1,5 +1,5 @@
 <?php
-if(!isset($_GET['idm']))
+if(!isset($_GET['idm'])) // Controllo
     header('Location:../');
 
 $idm = $_GET['idm'];
@@ -21,7 +21,7 @@ try
 }
 catch(Exception $e) { echo "Errore: " .$e->getMessage(); }
 
-
+// Funzione di controllo
 function getDel($sql,$idm)
 {
     include "../../dbconfig/dbopen.php";
