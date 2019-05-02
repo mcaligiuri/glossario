@@ -3,7 +3,7 @@
 <!-- Head -->
 <?php include "head.php"; ?>
 <body>
-    <div class="corpo">
+    <div class="corpo"><!-- Pagina iniziale -->
         <?php include "dbconfig/dbopen.php"; ?>
         <!-- Intestazione -->
         <?php include "header.php"; ?>
