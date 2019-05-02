@@ -1,4 +1,5 @@
 <?php
+// Definizioni termini
 if(empty($_GET['idt']))
     header('Location:./');
 
