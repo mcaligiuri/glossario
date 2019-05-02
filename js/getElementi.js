@@ -1,3 +1,5 @@
+// Tecnica Ajax usata per aggiornare i contenuti in background
+
 // Richiedo argomenti in background alla pagina PHP
 function getArgomenti(codm,mat)
 {
