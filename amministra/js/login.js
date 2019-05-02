@@ -1,3 +1,4 @@
+// Gestione errori o accesso login a seconda della risposta della pagina php
 function setLogin()
 {
     var user, pass,form,warn;
@@ -50,6 +51,7 @@ function setLogin()
     xhttp.send("user="+user+"&pass="+pass);
 }
 
+// Azzero i campi
 function resetForm()
 {
     var user, pass,form,warn;
