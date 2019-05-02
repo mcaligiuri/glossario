@@ -1,4 +1,5 @@
 <?php
+// MATERIE
 $sql = "SELECT * FROM $mat ORDER BY materia";
 $righe = $dbconn->query($sql);
 if($righe->num_rows == 0)
