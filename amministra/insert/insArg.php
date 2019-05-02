@@ -1,7 +1,8 @@
 <?php
-if(!isset($_GET['arg']) || !isset($_GET['codm']))
+if(!isset($_GET['arg']) || !isset($_GET['codm'])) // Controllo
     header('Location:../');
 
+// Inserisco un nuovo argomento nel database
 $argomento = addslashes($_GET['arg']);
 $codm = $_GET['codm'];
 include "../../dbconfig/dbopen.php";
