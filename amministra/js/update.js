@@ -1,3 +1,5 @@
+// Query di aggiornamento in background 
+
 function getForm(id,tipo,nome,codm)
 {
     var div = document.getElementById(tipo);
