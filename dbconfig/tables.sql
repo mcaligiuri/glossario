@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 02, 2019 alle 09:14
+-- Creato il: Mag 02, 2019 alle 09:57
 -- Versione del server: 10.1.38-MariaDB
 -- Versione PHP: 7.3.2
 
@@ -11,18 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `my_michelecaligiuri`
---
-
--- --------------------------------------------------------
 
 --
 -- Struttura della tabella `gls-argomento`
@@ -33,6 +21,7 @@ CREATE TABLE `gls-argomento` (
   `argomento` varchar(50) NOT NULL,
   `codm` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -59,8 +48,24 @@ CREATE TABLE `gls-termine` (
   `definizione` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Dump dei dati per la tabella `gls-termine`
+-- Struttura della tabella `gls-utente`
+--
+
+CREATE TABLE `gls-utente` (
+  `idu` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `gls-utente`
+--
+
+INSERT INTO `gls-utente` (`idu`, `username`, `password`) VALUES
+(1, 'prova', '189bbbb00c5f1fb7fba9ad9285f193d1');
 
 --
 -- Indici per le tabelle scaricate
@@ -85,6 +90,12 @@ ALTER TABLE `gls-termine`
   ADD PRIMARY KEY (`idt`);
 
 --
+-- Indici per le tabelle `gls-utente`
+--
+ALTER TABLE `gls-utente`
+  ADD PRIMARY KEY (`idu`);
+
+--
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
@@ -105,6 +116,12 @@ ALTER TABLE `gls-materia`
 --
 ALTER TABLE `gls-termine`
   MODIFY `idt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+
+--
+-- AUTO_INCREMENT per la tabella `gls-utente`
+--
+ALTER TABLE `gls-utente`
+  MODIFY `idu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
