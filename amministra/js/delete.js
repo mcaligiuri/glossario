@@ -1,4 +1,4 @@
-// Cancellazione materie con argomenti e termini
+// Cancellazione materie con argomenti e termini richiamando le pagine php in background
 function delMat(idm)
 {
     // Popup
