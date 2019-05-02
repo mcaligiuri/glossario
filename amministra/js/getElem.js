@@ -1,3 +1,4 @@
+// Richiamo materie
 function getMaterie()
 {
     chiudi();
@@ -27,7 +28,7 @@ function getMaterie()
     }
     return "Caricamento..."; 
 }
-
+// Richiamo argomenti
 function getArg(codm,mat)
 {
     var arg;
@@ -46,7 +47,7 @@ function getArg(codm,mat)
     } 
     return "Caricamento...";
 }
-
+// Richiamo termini
 function getTerm(coda,arg)
 {
     document.getElementById('arg').style.display="none";
@@ -64,7 +65,7 @@ function getTerm(coda,arg)
     }
     return "Caricamento...";
 }
-
+// Richiamo definizioni
 function getDef(idt,coda,arg)
 {
     document.getElementById('ter').style.display="none";
@@ -81,7 +82,7 @@ function getDef(idt,coda,arg)
             def.innerHTML = ric.responseText;
     } 
 }
-
+// Mostro nascondo div 
 function showArg()
 {
     document.getElementById('ter').style.display = "none";
