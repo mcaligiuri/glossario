@@ -5,7 +5,7 @@ $dbuser = "root";
 $dbpass = "";
 $dbname = "my_michelecaligiuri";
 
-//Tabelle del database
+// Tabelle del database
 include "global.php";
 
 ?>
