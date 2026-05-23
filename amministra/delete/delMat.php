@@ -1,34 +1,28 @@
 <?php
-if(!isset($_GET['idm'])) // Controllo
-    header('Location:../');
 
-$idm = $_GET['idm'];
-include "../../dbconfig/global.php";
-
-try
-{
-    // Cancello materia
-    $sql = "DELETE FROM $mat WHERE idm=$idm";
-    getDel($sql,$idm);
-    
-    // Cancello argomenti con termini che erano associati alla materia
-    $sql = "DELETE $arg,$ter FROM $arg INNER JOIN $ter ON $arg.ida=$ter.coda WHERE $arg.codm=$idm";
-    getDel($sql,$idm);
-
-    // Cancello argomenti senza termini associati alla materia
-    $sql = "DELETE FROM $arg WHERE codm=$idm";
-    getDel($sql,$idm);
+if(!isset($_POST['idm'])) {
+  header('Location:../');
+  exit;
 }
-catch(Exception $e) { echo "Errore: " .$e->getMessage(); }
 
-// Funzione di controllo
-function getDel($sql,$idm)
-{
-    include "../../dbconfig/dbopen.php";
-    if(!$dbconn->query($sql))
-        throw new Exception("Si è verificato un problema.");
+$idm = $_POST['idm'];
+$tipo = "M";
 
-    include "../../dbconfig/dbclose.php";
-    return true;
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+try {
+  include "../../dbconfig/dbopen.php";
+  $stmt = $dbconn->prepare("CALL ELIMINAMATERIA(?,?)");
+  $stmt->bind_param("is",$idm,$tipo);
+  $stmt->execute();
+  $stmt->close();
+  $dbconn->close();
+}
+catch (mysqli_sql_exception $e) { echo "Errore: " . $e->getMessage(); }
+catch (Exception $e) {
+  // Se c'è un altro tipo di errore PHP
+  echo "<h1>Errore generico PHP:</h1>";
+  echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
+  exit;
 }
 ?>

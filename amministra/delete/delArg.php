@@ -1,28 +1,25 @@
 <?php
-if(!isset($_GET['ida'])) // Controllo
-    header('Location:../');
-
-$ida = $_GET['ida'];
-include "../../dbconfig/global.php";
-try
-{
-    // Elimino argomento
-    $sql = "DELETE FROM $arg WHERE ida=$ida";
-    checkArgTerm($ida,$sql);
-    // Provo a eliminare termini associati
-    // all'argomento eliminato
-    $sql = "DELETE FROM $ter WHERE coda=$ida";
-    checkArgTerm($ida,$sql);
+if(!isset($_POST['ida'])) {
+  header('Location:../');
+  exit;
 }
-catch(Exception $e) { echo "Errore: " .$e->getMessage(); }
+$ida = $_POST['ida'];
+$tipo = "A";
 
-function checkArgTerm($ida,$sql)
-{
-    include "../../dbconfig/dbopen.php";
-    if(!$dbconn->query($sql))
-        throw new Exception("Impossibile portare a termine l'operazione");
-        
-    include "../../dbconfig/dbclose.php";
-    return true;
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+try {
+  include "../../dbconfig/dbopen.php";
+  $stmt = $dbconn->prepare("CALL ELIMINAMATERIA(?,?)");
+  $stmt->bind_param("is",$ida,$tipo);
+  $stmt->execute();
+  $stmt->close();
+  $dbconn->close();
+}
+catch (mysqli_sql_exception $e) { echo "Errore: " . $e->getMessage(); }
+catch (Exception $e) {
+  // Se c'è un altro tipo di errore PHP
+  echo "<h1>Errore generico PHP:</h1>";
+  echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
+  exit;
 }
 ?>
