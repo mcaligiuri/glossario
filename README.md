@@ -4,7 +4,7 @@ Questo progetto è nato per studiare i database relazionali e i linguaggi di pro
 
 ## Front End
 Questa è la parte visibile direttamente all'utente. Consente semplicemente di interagire coi contenuti visualizzandoli.
-Ogni contenuto può essere filtrato velocemente tramite apposita barra ricerca.
+Ogni contenuto può essere filtrato velocemente tramite apposita barra di ricerca.
 
 <ul>
 <li>Cliccando su una materia verranno mostrati gli argomenti ad essa associata</li>
@@ -24,5 +24,4 @@ Un utente di test è già memorizzato nel database.
 <li>Eliminando una materia verranno eliminati anche tutti gli argomenti e i termini ad essa associata</li>
 <li>Eliminando un argomento verranno rimossi anche tutti i termini ad esso associato, ma non la materia a cui l'argomento era collegato</li>
 <li>Eliminando un termine verrà rimossa solo la sua definizione</li>
-<li>La password dell'utente viene criptata in MD5 per aumentare la sicurezza</li>
 </ul>
