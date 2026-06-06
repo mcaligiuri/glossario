@@ -1,114 +1,146 @@
 // Query di aggiornamento in background 
 
-function getForm(id,tipo,nome,codm)
-{
-    var div = document.getElementById(tipo);
-    var ric = new XMLHttpRequest();
-    var par;
-    if(tipo == "arg")
-        par = "update/updForm.php?id="+id+"&tipo="+tipo+"&nome="+nome+"&codm="+codm;
-    else
-        par = "update/updForm.php?id="+id+"&tipo="+tipo+"&nome="+nome;
-    
-    ric.open("GET",par, true);
-    ric.send();
-    
-    ric.onreadystatechange = function() 
-    {
-        if (this.readyState == 4 && this.status == 200)
-            div.innerHTML = this.responseText;
-    } 
-}
-function updMA(id,tipo,nome,codm)
-{
-    // Popup
-    var popup = document.getElementById('popup');
-    var btsi = document.getElementById('idyessa');
-    var btno = document.getElementById('idno');
-    popup.style.display="block";
-    btno.onclick = function()
-    {
-        popup.style.display="none";
-        return;
+async function getForm(id,tipo,nome,codm) {
+  const div = document.getElementById(tipo);
+  try {
+    const par = new URLSearchParams();
+    par.append("id",id);
+    par.append("tipo",tipo);
+    par.append("nome",nome);
+    if (tipo == "arg") {
+      par.append("codm",codm);
     }
-    btsi.onclick = function() 
-    {
-        popup.style.display="none";
-        var par,div,data;
-        div = document.getElementById(tipo);
-        data=document.getElementById("txtupd").value;
-        if (tipo == "mat")
-            par = "update/updMat.php?idm="+id+"&mat="+data;
-        else
-            par = "update/updArg.php?codm="+id+"&arg="+data;
-        
-        var ric = new XMLHttpRequest();
-        ric.open("GET", par, true);
-        ric.send();
-        ric.onreadystatechange = function() 
-        {
-            if (this.readyState != 4 || this.status != 200)
-                return;
-
-            if(tipo == "mat")
-                div.innerHTML = getMaterie();
-            else
-                div.innerHTML = getArg(codm,nome);
-        }
+    
+    const url = "update/updForm.php?" + par.toString();
+    const ric = await fetch(url, {
+      method: "GET",
+    });
+    if(ric.ok) {
+      div.innerHTML = await ric.text();
     }
+    else {
+      console.error("Errore dal server:", ric.status);
+    }
+  }
+  catch(errore) {
+    console.error("Si è verificato un problema nell'aggiornare la pagina:", errore);   
+  }
 }
 
-function updTerm(idt,coda,arg)
-{
-    // Popup
-    var popup = document.getElementById('popup');
-    var btsi = document.getElementById('idyessa');
-    var btno = document.getElementById('idno');
-    popup.style.display="block";
-    btno.onclick = function()
-    {
-        popup.style.display="none";
-        return;
+// Rinomina materia o argomento
+function updMA(id,tipo,nome,codm) {
+  // Popup
+  const popup = document.getElementById('popup');
+  const btsi = document.getElementById('idyessa');
+  const btno = document.getElementById('idno');
+  popup.style.display="block";
+  // Se clicco "NO"
+  btno.onclick = function() {
+    popup.style.display="none";
+      return;
+  }
+  // Se clicco "SI"
+  btsi.onclick = async function() {
+    popup.style.display="none";
+    const div = document.getElementById(tipo);
+    const data=document.getElementById("txtupd").value;
+    let dest = "";
+    const par = new URLSearchParams();
+    if (tipo === "mat") {
+      dest = "update/updMat.php";
+      par.append("idm", id);
+      par.append("mat", data);
     }
-    btsi.onclick = function() 
-    {
-        popup.style.display="none";
-        var div = document.getElementById("ter");
-        var ric = new XMLHttpRequest();
-        var term = document.getElementById("termt").value;
-        var def = document.getElementById("termdef").value;
-        ric.onreadystatechange = function() 
-        {
-            if (this.readyState == 4 && this.status == 200)
-            {
-                div.innerHTML = getTerm(coda,arg);
-                document.getElementById("def").style.display="none";
-            }
+     else {
+      dest = "update/updArg.php";
+      par.append("codm", id);
+      par.append("arg", data);
+    }
+    try {
+      const ric = await fetch(dest, {
+        method: "POST",
+        headers: { 
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+        body: par, 
+      });
+      
+      if(ric.ok) {
+        if(tipo === "mat") {
+          div.innerHTML = getMaterie();
         }
-        ric.open("GET", "update/updTerm.php?idt="+idt+"&coda="+coda+"&term="+term+"&def="+def , true);
-        ric.send();
+        else {
+          div.innerHTML = getArg(codm,nome);
+        }
+      }
+      else {
+        console.error("Errore nel salvataggio dei dati.");
+      }
     }
+    catch(errore) {
+      console.error("Si è verificato un problema:", errore); 
+    }
+  }
+}
+
+function updTerm(idt,coda,arg) {
+  // Popup
+  const popup = document.getElementById('popup');
+  const btsi  = document.getElementById('idyessa');
+  const btno  = document.getElementById('idno');
+  popup.style.display="block";
+  btno.onclick = function() {
+    popup.style.display="none";
+      return;
+  }
+  btsi.onclick = async function() {
+    popup.style.display="none";
+    const div = document.getElementById("ter");
+    const def = document.getElementById("termdef").value;
+    const term = document.getElementById("termt").value;
+    
+    try {
+      const par = new URLSearchParams();
+      par.append("idt", idt);
+      par.append("coda", coda);
+      par.append("term", term);
+      par.append("def", def);
+
+      const rich = await fetch("update/updTerm.php",{
+        method: "POST",
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded", 
+        },
+        body: par,
+      });
+      if(ric.ok) {
+        div.innerHTML = getTerm(coda,arg);
+        document.getElementById("def").style.display="none";
+      }
+      else {
+        console.error("Errore dal server:", ric.status);
+      }
+    }
+    catch(errore) {
+      console.error("Si è verificato un problema:", errore);   
+    }
+  }
 }
 
 // Apro menù mobile
-function apri()
-{
-    var nav;
-    nav = document.getElementById("nav");
-    mnu = document.getElementById("btnmnu");
-    nav.style.width = "250px";
-    mnu.style.display = "none";
+function apri() {
+  const nav = document.getElementById("nav");
+  const mnu = document.getElementById("btnmnu");
+  nav.style.width = "250px";
+  mnu.style.display = "none";
 }
 
 // Chiudo menù mobile
-function chiudi()
-{
-    nav = document.getElementById("nav");
-    mnu = document.getElementById("btnmnu");
-
-    if(window.matchMedia("(max-width: 800px)")) 
-    {
-        nav.style.width = "0px"
-        mnu.style.display = "block";
-    }
+function chiudi() {
+  const nav = document.getElementById("nav");
+  const mnu = document.getElementById("btnmnu");
+  if(window.matchMedia("(max-width: 800px)")) {
+    nav.style.width = "0px"
+    mnu.style.display = "block";
+  }
 }
