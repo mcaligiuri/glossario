@@ -1,15 +1,32 @@
 <?php
-if (!isset($_GET['idm']) || !isset($_GET['mat']))
-    header('Location:../');
+// Rinomina materia nel database
+header('Content-Type: application/json');
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$idm = $_GET['idm'];
-$nome = addslashes($_GET['mat']);
+if (!isset($_POST['idm']) || !isset($_POST['mat'])) {
+  http_response_code(400); // Bad Request
+  echo json_encode(["status" => "error", "message" => "Dati non validi"]);
+  exit;
+}
+
+if(trim($_POST['idm']) === '' || trim($_POST['mat']) === '') {
+  http_response_code(400); // Bad Request
+  echo json_encode(["status" => "error", "message" => "Dati non validi"]);
+  exit;
+}
+
+$idm =  $_POST['idm'];
+$nome = $_POST['mat'];
 
 include "../../dbconfig/dbopen.php";
 
-$sql = "UPDATE $mat SET materia='$nome' WHERE idm=$idm";
-if(!$dbconn->query($sql))
-    echo "Impossibile rinominare la materia";
+$sql = $dbconn->prepare("UPDATE $mat SET materia=? WHERE idm=?");
+$sql->bind_param("si",$nome,$idm);
+if(!$sql->execute()){
+  http_response_code(500); 
+  echo json_encode(["status" => "error", "message" => "Impossibile rinominare la materia"]);
+  exit;
+}
 
 include "../../dbconfig/dbclose.php";
 ?>
