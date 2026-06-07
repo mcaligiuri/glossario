@@ -1,78 +1,113 @@
 // Cancellazione materie con argomenti e termini richiamando le pagine php in background
+
+// Richiesta cancellazione materia
 function delMat(idm) {
   // Popup
-  var popup = document.getElementById('popup');
-  var btsi = document.getElementById('idyessa');
-  var btno = document.getElementById('idno');
+  const popup = document.getElementById('popup');
+  const btsi = document.getElementById('idyessa');
+  const btno = document.getElementById('idno');
   popup.style.display="block";
   btno.onclick = function() {
     popup.style.display="none";
     return;
   }
-  btsi.onclick = function() {
+  btsi.onclick = async function() {
     popup.style.display="none";
-    var ric = new XMLHttpRequest();
-    ric.open("POST", "delete/delMat.php", true);
-    ric.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    ric.send("idm="+encodeURIComponent(idm));
-    ric.onreadystatechange = function() {
-      if (this.readyState != 4 || this.status != 200)
-        return;
-
-      getMaterie();// Ricarico elenco materie
+    try {
+      const par = new URLSearchParams();
+      par.append("idm",idm);
+      const ric = await fetch("delete/delMat.php", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+        body: par, 
+      });
+      if (ric.ok) {
+        getMaterie(); // Ricarico elenco materie
+      }
+      else {
+        console.error("Errore nella richiesta."); 
+      }
+    }
+    catch(errore) {
+      console.error("Si è verificato un problema nella richiesta di cancellazione:", errore);
     }
     return "Caricamento..."; 
   }
 }
 
+// Richiesta cancellazione argomento
 function delArg(ida,codm,materia) {
   // Popup
-  var popup = document.getElementById('popup');
-  var btsi = document.getElementById('idyessa');
-  var btno = document.getElementById('idno');
+  const popup = document.getElementById('popup');
+  const btsi = document.getElementById('idyessa');
+  const btno = document.getElementById('idno');
   popup.style.display="block";
   btno.onclick = function() {
     popup.style.display="none";
     return;
   }
-  btsi.onclick = function() {
+  btsi.onclick = async function() {
     popup.style.display="none";
-    var ric = new XMLHttpRequest();
-    arg = document.getElementById("arg");
-    ric.open("POST", "delete/delArg.php", true);
-    ric.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    ric.send("ida="+encodeURIComponent(ida));
-    ric.onreadystatechange = function() {
-      if (this.readyState != 4 || this.status != 200)
-        return;
-      getArg(codm,materia);// Ricarico elenco argomenti
+    const arg = document.getElementById("arg");
+    try {
+      const par = new URLSearchParams();
+      par.append("ida",ida);
+      const ric = await fetch("delete/delArg.php",{
+        method: "POST",
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+        body: par,
+      });
+      if(ric.ok) {
+        getArg(codm,materia);// Ricarico elenco argomenti
+      }
+      else {
+        console.error("Errore nella richiesta."); 
+      }
+    }
+    catch(errore) {
+      console.error("Si è verificato un problema nella cancellazione dell'agomento:", errore);
     }
     return "Caricamento..."; 
   }
 }
 
+// Richiesta cancellazione termine
 function delTerm(idt,coda,argomento) {
   // Popup
-  var popup = document.getElementById('popup');
-  var btsi = document.getElementById('idyessa');
-  var btno = document.getElementById('idno');
+  const popup = document.getElementById('popup');
+  const btsi = document.getElementById('idyessa');
+  const btno = document.getElementById('idno');
   popup.style.display="block";
   btno.onclick = function() {
     popup.style.display="none";
       return;
   }
-  btsi.onclick = function() {
+  btsi.onclick = async function() {
     popup.style.display="none";
-    var ric = new XMLHttpRequest();
-    arg = document.getElementById("arg");
-    ric.open("POST", "delete/delTerm.php", true);
-    ric.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    ric.send("idt="+encodeURIComponent(idt));
-    ric.onreadystatechange = function() {
-      if (this.readyState != 4 || this.status != 200)
-        return;
-
-      getTerm(coda,argomento);// Ricarico elenco termini
+    const arg = document.getElementById("arg");
+    try{
+      const par = new URLSearchParams();
+      par.append("idt",idt);
+      const ric = await fetch("delete/delTerm.php",{
+        method: "POST",
+        headers: {
+          "Content-type": "application/x-www-form-urlencoded",
+        },
+        body: par,
+      });
+      if(ric.ok) {
+        getTerm(coda,argomento);// Ricarico elenco termini
+      }
+      else {
+        console.error("Errore nella richiesta di cancellazione del termine.");         
+      }
+    }
+    catch (errore) {
+      console.error("Si è verificato un problema nella cancellazione del termine:", errore);
     }
     return "Caricamento..."; 
   }
