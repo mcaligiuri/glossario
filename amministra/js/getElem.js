@@ -107,14 +107,6 @@ async function getDef(idt,coda,arg) {
     console.error("Si è verificato un problema nel richiamare le definizioni:", errore);   
   }
 }
-  /*var ric = new XMLHttpRequest();
-
-  ric.open("GET", "select/selDef.php?idt="+idt+"&coda="+coda+"&arg="+arg, true);
-  ric.send();
-  ric.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200)
-      def.innerHTML = ric.responseText;
-  }*/ 
 
 // Mostro nascondo div 
 function showArg() {
