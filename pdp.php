@@ -1,7 +1,6 @@
 <!-- Footer front end -->
 <?php
 $anno = "2017 / ". Date("Y");
-$ip   = $_SESSION['ip'];
 echo <<<HTML
   <div id="block"></div>
   <footer title="footer">
