@@ -70,7 +70,6 @@ async function getTermini(coda,mat,arg) {
 
 // Richiedo definizioni in background alla pagina PHP
 async function getDef(idt) {
-  //var cont;
   const termini = document.getElementById("term");
   const cont = document.getElementById("cont");
   try {
@@ -98,7 +97,6 @@ async function getDef(idt) {
 
 // Pagina delle info
 async function getInfo(page) {
-  //var cont,arg,term;
   const term = document.getElementById("term");
   const arg = document.getElementById("arg");
   const cont = document.getElementById("cont");
