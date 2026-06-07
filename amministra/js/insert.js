@@ -13,11 +13,13 @@ async function insMat() {
       },
       body: "mat=" + encodeURIComponent(mat) 
     });
+    const risposta = await ric.json();
     if (ric.ok) {
       div.innerHTML = getMaterie();
     }
     else {
       console.error("Errore dal server:", ric.status);
+      alert(risposta.message);
     }
   } 
   catch(errore) {
@@ -40,11 +42,13 @@ async function insArg(codm,mat) {
       },
       body: parametri, 
     });
+    const risposta = await ric.json();
     if(ric.ok) {
       div.innerHTML = getArg(codm,mat);  
     }
     else {
       console.error("Errore dal server:", ric.status);
+      alert(risposta.message);
     }
   } 
   catch(errore) {
@@ -70,8 +74,13 @@ async function insTerm(coda,arg) {
       },
       body: parametri,
     });
+    const risposta = await ric.json();
     if(ric.ok) {
       div.innerHTML = getTerm(coda,arg);
+    }
+    else {
+      console.error("Errore dal server:", ric.status);
+      alert(risposta.message);
     }
   } 
   catch(errore) {
