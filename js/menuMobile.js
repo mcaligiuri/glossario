@@ -1,45 +1,34 @@
 // Apro menù mobile
-function apri()
-{
-    var mnu,mat;
-    mat = document.getElementById("mat");
-    mnu = document.getElementById("mnu");
-    mat.style.width = "250px";
-    mnu.style.display = "none";
+function apri() {
+  const mat = document.getElementById("mat");
+  const mnu = document.getElementById("mnu");
+  mat.style.width = "250px";
+  mnu.style.display = "none";
 }
 
 // Chiudo menù mobile
-function chiudi()
-{
-    mat = document.getElementById("mat");
-    mnu = document.getElementById("mnu");
-
-    if(window.matchMedia("(max-width: 800px)")) 
-    {
-        mat.style.width = "0px"
-        mnu.style.display = "block";
-    }
+function chiudi(){
+  const mat = document.getElementById("mat");
+  const mnu = document.getElementById("mnu");  
+  if(window.matchMedia("(max-width: 800px)")) {
+    mat.style.width = "0px"
+    mnu.style.display = "block";
+  }
 }
 
 // Mostro e nascondo al click del
 // pulsante indietro
-function showTerm()
-{
-    var def,term;
-    def = document.getElementById("cont");
-    term = document.getElementById("term");
-
-    def.style.display = "none";
-    term.style.display = "block";
+function showTerm() {
+  const def = document.getElementById("cont");
+  const term = document.getElementById("term");
+  def.style.display = "none";
+  term.style.display = "block";
 }
 
 // Mostro argomenti, nascondo i termini
-function showArg()
-{
-    var ter,arg;
-    ter = document.getElementById("term");
-    arg = document.getElementById("arg");
-
-    ter.style.display = "none";
-    arg.style.display = "block";
+function showArg() {
+  const ter = document.getElementById("term");
+  const arg = document.getElementById("arg");
+  ter.style.display = "none";
+  arg.style.display = "block";
 }
