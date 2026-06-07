@@ -22,7 +22,7 @@ async function setLogin() {
     });
     if (login.ok) {
       const esito = await login.text();
-      switch(esito){
+      switch(esito) {
         case "1":
           form.style.backgroundColor = "red";
           document.getElementById("user").style.backgroundColor ="red";
@@ -48,8 +48,8 @@ async function setLogin() {
           document.getElementById("pass").style.backgroundColor ="orange";
           warn.innerHTML = "Troppi tentativi di accesso, riprova tra 15 minuti.";
           break;
-        }
       }
+    }
     else{
      console.error("Errore nella richiesta di login."); 
     }
