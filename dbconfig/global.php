@@ -1,7 +1,7 @@
 <?php
 // Tabelle del database
-$mat = "`gls-materia`";
-$arg = "`gls-argomento`";
-$ter = "`gls-termine`";
-$ute = "`gls-utente`";
+$mat = "gls_materia";
+$arg = "gls_argomento";
+$ter = "gls_termine";
+$ute = "gls_utente";
 ?>
