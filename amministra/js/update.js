@@ -15,6 +15,7 @@ async function getForm(id,tipo,nome,codm) {
     const ric = await fetch(url, {
       method: "GET",
     });
+
     if(ric.ok) {
       div.innerHTML = await ric.text();
     }
