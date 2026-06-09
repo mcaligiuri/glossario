@@ -19,7 +19,7 @@ async function insMat() {
     }
     else {
       console.error("Errore dal server:", ric.status);
-      alert(risposta.message);
+      mostraErrori(risposta.message);
     }
   } 
   catch(errore) {
@@ -48,7 +48,7 @@ async function insArg(codm,mat) {
     }
     else {
       console.error("Errore dal server:", ric.status);
-      alert(risposta.message);
+      mostraErrori(risposta.message);
     }
   } 
   catch(errore) {
@@ -80,7 +80,7 @@ async function insTerm(coda,arg) {
     }
     else {
       console.error("Errore dal server:", ric.status);
-      alert(risposta.message);
+      mostraErrori(risposta.message);
     }
   } 
   catch(errore) {
