@@ -21,7 +21,7 @@ try {
 catch (mysqli_sql_exception $e) { echo "Errore: " . $e->getMessage(); }
 catch (Exception $e) {
   // Se c'è un altro tipo di errore PHP
-  echo "<h1>Errore generico PHP:</h1>";
+  echo "<h1>Errore generico:</h1>";
   echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
   exit;
 }
