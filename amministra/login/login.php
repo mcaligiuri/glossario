@@ -55,7 +55,8 @@ if($righe->num_rows === 0) {
 $riga = $righe->fetch_assoc();
 
 // Password errata codice 3
-if (!password_verify($pass, password_hash($riga['password'],PASSWORD_DEFAULT))) {
+//if (!password_verify($pass, password_hash($riga['password'],PASSWORD_DEFAULT))) {
+if (!password_verify($pass,$riga['password'])) {
   $_SESSION[$attempt_key][] = $now;
   error_log("Login fallito per utente: $user");
   $esito = 3;
