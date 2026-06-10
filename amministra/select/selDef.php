@@ -1,6 +1,8 @@
 <?php
- if(!isset($_GET['idt']) || !isset($_GET['coda']) || !isset($_GET['arg']))
-     header('Location:../');
+ if(!isset($_GET['idt']) || !isset($_GET['coda']) || !isset($_GET['arg'])){
+  header('Location:../');
+  exit;
+}
 
 include "../../dbconfig/dbopen.php";
 $idt = $_GET['idt'];
@@ -9,16 +11,14 @@ $argo = addslashes($_GET['arg']);
 $sql = "SELECT termine,definizione FROM $ter WHERE idt=$idt";
 $righe = $dbconn->query($sql);
 echo "<a id='ind' onclick='showTer();'>indietro</a>";
-if($righe->num_rows == 0)
-    return;
+if($righe->num_rows == 0) return;
 
-while($riga = $righe->fetch_assoc())
-{
-    $term = ($riga['termine']);
-    $def = $riga['definizione'];
-    echo "<input id='termt' type=\"text\" value='$term'>\n";
-    echo "<textarea id='termdef'>$def</textarea>\n";
-    echo "<a id='btnupd' onclick=\"updTerm('$idt','$coda','$argo');\">Salva</a>";
+while($riga = $righe->fetch_assoc()) {
+  $term = ($riga['termine']);
+  $def = $riga['definizione'];
+  echo "<input id='termt' type=\"text\" value='$term'>\n";
+  echo "<textarea id='termdef'>$def</textarea>\n";
+  echo "<a id='btnupd' onclick=\"updTerm('$idt','$coda','$argo');\">Salva</a>";
 }
 include "../../dbconfig/dbclose.php";
 ?>
