@@ -65,7 +65,7 @@ function updMA(id,tipo,nome,codm) {
         },
         body: par, 
       });
-      
+      const risp = await ric.json();
       if(ric.ok) {
         if(tipo === "mat") {
           div.innerHTML = getMaterie();
@@ -76,6 +76,7 @@ function updMA(id,tipo,nome,codm) {
       }
       else {
         console.error("Errore nel salvataggio dei dati.");
+        mostraErrori(risp.message);
       }
     }
     catch(errore) {
@@ -107,19 +108,21 @@ function updTerm(idt,coda,arg) {
       par.append("term", term);
       par.append("def", def);
 
-      const rich = await fetch("update/updTerm.php",{
+      const ric = await fetch("update/updTerm.php",{
         method: "POST",
         headers: {
           "Content-type": "application/x-www-form-urlencoded", 
         },
         body: par,
       });
+      const risp = await ric.json();
       if(ric.ok) {
         div.innerHTML = getTerm(coda,arg);
         document.getElementById("def").style.display="none";
       }
       else {
         console.error("Errore dal server:", ric.status);
+        mostraErrori(risp.message);
       }
     }
     catch(errore) {

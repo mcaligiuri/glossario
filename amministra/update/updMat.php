@@ -20,11 +20,22 @@ $nome = $_POST['mat'];
 
 include "../../dbconfig/dbopen.php";
 
-$sql = $dbconn->prepare("UPDATE $mat SET materia=? WHERE idm=?");
-$sql->bind_param("si",$nome,$idm);
-if(!$sql->execute()){
-  http_response_code(500); 
-  echo json_encode(["status" => "error", "message" => "Impossibile rinominare la materia"]);
+try {
+  $sql = $dbconn->prepare("UPDATE $mat SET materia=? WHERE idm=?");
+  $sql->bind_param("si",$nome,$idm);
+  $sql->execute();
+  echo json_encode(["status" => "success", "message" => "Materia rinominata correttamente!"]);
+  exit;
+}
+catch(mysqli_sql_exception $e) {
+  if ($e->getCode() == 1062){
+    http_response_code(400);
+    echo json_encode(["status" => "error", "message" => "La materia '$nome' è già presente in elenco!"]);
+  }
+  else {
+    http_response_code(500); 
+    echo json_encode(["status" => "error", "message" => "Impossibile rinominare la materia"]);
+  }
   exit;
 }
 

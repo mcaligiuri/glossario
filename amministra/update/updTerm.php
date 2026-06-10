@@ -22,13 +22,25 @@ $def  = $_POST['def'];
 
 include "../../dbconfig/dbopen.php";
 
-$sql = $dbconn->prepare("UPDATE $ter SET termine=?,definizione=?,coda=? WHERE idt=?");
-$sql->bind_param("ssii", $term, $def, $coda, $idt);
-if(!$sql->execute()) {
-  http_response_code(500); 
-  echo json_encode(["status" => "error", "message" => "Impossibile rinominare il termine"]);
+try {
+  $sql = $dbconn->prepare("UPDATE $ter SET termine=?,definizione=?,coda=? WHERE idt=?");
+  $sql->bind_param("ssii", $term, $def, $coda, $idt);
+  $sql->execute();
+  echo json_encode(["status" => "success", "message" => "Termine rinominato correttamente!"]);
   exit;
 }
+catch(mysqli_sql_exception $e) {
+  if ($e->getCode() == 1062) {
+    http_response_code(400);
+    echo json_encode(["status" => "error", "message" => "Il termine '$term' è già presente in elenco!"]);
+  }
+  else {
+    http_response_code(500); 
+    echo json_encode(["status" => "error", "message" => "Impossibile rinominare il termine"]);
+  }
+  exit;
+}
+
 
 include "../../dbconfig/dbclose.php";
 ?>
