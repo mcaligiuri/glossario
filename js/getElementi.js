@@ -1,12 +1,12 @@
 // Tecnica Ajax usata per aggiornare i contenuti in background
 
+// Variabili usate da tutte le funzioni
+const termini   = document.getElementById("term");
+const argomenti = document.getElementById("arg");
+const cont      = document.getElementById("cont");
+
 // Richiedo argomenti in background alla pagina PHP
 async function getArgomenti(codm,mat) {
-  // Variabili
-  const termini   = document.getElementById("term");
-  const argomenti = document.getElementById("arg");
-  const cont      = document.getElementById("cont");
-
   // Chiudo barra di navigazione
   chiudi();
   
@@ -41,8 +41,6 @@ async function getArgomenti(codm,mat) {
  
 // Richiedo termini in background alla pagina PHP
 async function getTermini(coda,mat,arg) {
-  const termini = document.getElementById("term");
-  const argomenti = document.getElementById("arg");
   try {
     const par = new URLSearchParams();
     par.append("coda",coda);
@@ -70,8 +68,6 @@ async function getTermini(coda,mat,arg) {
 
 // Richiedo definizioni in background alla pagina PHP
 async function getDef(idt) {
-  const termini = document.getElementById("term");
-  const cont = document.getElementById("cont");
   try {
     const par = new URLSearchParams();
     par.append("idt",idt);
@@ -97,9 +93,6 @@ async function getDef(idt) {
 
 // Pagina delle info
 async function getInfo(page) {
-  const term = document.getElementById("term");
-  const arg = document.getElementById("arg");
-  const cont = document.getElementById("cont");
   try {
     const ric = await fetch(page, {
       method: "GET",
@@ -109,8 +102,8 @@ async function getInfo(page) {
     });
     if (ric.ok) {
       cont.style.display = "block";
-      arg.style.display = "none";
-      term.style.display = "none";
+      argomenti.style.display = "none";
+      termini.style.display = "none";
       cont.innerHTML = await ric.text();
     }
     else {
