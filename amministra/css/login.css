@@ -109,3 +109,8 @@ form input[type=submit]:hover,input[type=reset]:hover {
     }
     form input[type=text],input[type=password] { padding: 1em; }
 }
+/*Errore di connessione al database*/
+#dberror {
+    color: #fff;
+    background-color: crimson;
+}
