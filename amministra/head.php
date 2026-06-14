@@ -15,6 +15,6 @@
   <script src="js/getElem.js"></script>
   <script src="js/insert.js"></script>
   <script src="js/update.js"></script>
-  <script src="js/delete.js"></script>
+  <script src="js/delete.js" defer></script>
   <script src="js/popup.js" defer></script>
 </head>

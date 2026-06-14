@@ -15,6 +15,6 @@
     <link rel="icon" type="favicon" href="images/favicon.png">
     <!-- Script JavaScript -->
     <script src="js/menuMobile.js"></script>
-    <script src="js/getElementi.js"></script>
+    <script src="js/getElementi.js" defer></script>
     <script src="js/filtraListe.js"></script>
 </head>
