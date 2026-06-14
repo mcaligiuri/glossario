@@ -4,15 +4,15 @@
 <!-- Head -->
 <?php include "head.php"; ?>
 <body>
-    <div class="corpo">
-        <!-- Testata -->
-        <?php include "header.php"; ?>
-        <!-- Contenuti -->
-        <?php include "cont.php"; ?>
-    </div>
-    <!-- Pdp -->
-    <?php include "pdp.php"; ?>
-    <!-- Popup a scomparsa -->
-    <?php include "popup.php";?>
+  <div class="corpo">
+    <!-- Testata -->
+    <?php include "header.php"; ?>
+    <!-- Contenuti -->
+    <?php include "cont.php"; ?>
+  </div>
+  <!-- Pdp -->
+  <?php include "pdp.php"; ?>
+  <!-- Popup a scomparsa -->
+  <?php include "popup.php";?>
 </body>
 </html>
