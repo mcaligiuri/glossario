@@ -1,6 +1,6 @@
 <!-- Footer front end -->
 <?php
-$anno = "2017 / ". Date("Y");
+$anno = "2016 / ". Date("Y");
 echo <<<HTML
   <div id="block"></div>
   <footer title="footer">

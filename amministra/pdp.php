@@ -1,6 +1,6 @@
 <?php
 include "../dbconfig/dbconfig.php";
-$anno = "2017 / ". Date("Y");
+$anno = "2016 / ". Date("Y");
 $ip   = $_SESSION['ip'];
 echo <<<HTML
   <div id="block"></div>
