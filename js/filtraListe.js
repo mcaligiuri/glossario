@@ -1,12 +1,14 @@
 // Funzioni per eseguire una ricerca rapida nelle varie liste
 function getElem(val) {
-  const cont = document.getElementById("cont");
-  const term = document.getElementById("term");
-  const input = document.getElementById("cerca");
+  // Variabili
+  const cont   = document.getElementById("cont");
+  const term   = document.getElementById("term");
+  const input  = document.getElementById("cerca");
   const filter = input.value.toUpperCase();
-  const div = document.getElementById("arg");
-  const a = div.getElementsByTagName("a"); 
+  const div    = document.getElementById("arg");
+  const a      = div.getElementsByTagName("a"); 
   let txtValue = "";
+
   switch(val) {
     // Filtro argomenti
     case 1: {
