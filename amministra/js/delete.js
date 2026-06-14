@@ -1,11 +1,14 @@
 // Cancellazione materie con argomenti e termini richiamando le pagine php in background
 
+// Variabili usate da tutte le funzioni di seguito
+const popup = document.getElementById('popup');
+const btsi  = document.getElementById('idyessa');
+const btno  = document.getElementById('idno');
+const arg   = document.getElementById("arg");
+
 // Richiesta cancellazione materia
 function delMat(idm) {
   // Popup
-  const popup = document.getElementById('popup');
-  const btsi = document.getElementById('idyessa');
-  const btno = document.getElementById('idno');
   popup.style.display="block";
   btno.onclick = function() {
     popup.style.display="none";
@@ -40,9 +43,6 @@ function delMat(idm) {
 // Richiesta cancellazione argomento
 function delArg(ida,codm,materia) {
   // Popup
-  const popup = document.getElementById('popup');
-  const btsi = document.getElementById('idyessa');
-  const btno = document.getElementById('idno');
   popup.style.display="block";
   btno.onclick = function() {
     popup.style.display="none";
@@ -50,7 +50,6 @@ function delArg(ida,codm,materia) {
   }
   btsi.onclick = async function() {
     popup.style.display="none";
-    const arg = document.getElementById("arg");
     try {
       const par = new URLSearchParams();
       par.append("ida",ida);
@@ -78,9 +77,6 @@ function delArg(ida,codm,materia) {
 // Richiesta cancellazione termine
 function delTerm(idt,coda,argomento) {
   // Popup
-  const popup = document.getElementById('popup');
-  const btsi = document.getElementById('idyessa');
-  const btno = document.getElementById('idno');
   popup.style.display="block";
   btno.onclick = function() {
     popup.style.display="none";
@@ -88,7 +84,6 @@ function delTerm(idt,coda,argomento) {
   }
   btsi.onclick = async function() {
     popup.style.display="none";
-    const arg = document.getElementById("arg");
     try{
       const par = new URLSearchParams();
       par.append("idt",idt);
