@@ -95,3 +95,8 @@ nav a:hover {
     background-color: #f89920;
     transition: 0.5s;
 }
+/*Errore di connessione al database*/
+#dberror {
+    color: #fff;
+    background-color: crimson;
+}
