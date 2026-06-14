@@ -1,4 +1,13 @@
 <?php
+// Non visualizzo la form se non c'è connessione al database
+include "../../dbconfig/dbopen.php";
+
+if (!empty($messaggio)) {
+  echo $messaggio;
+  exit;
+}
+include "../../dbconfig/dbclose.php";
+
 session_start();
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 ?>
