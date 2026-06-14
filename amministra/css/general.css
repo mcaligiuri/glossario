@@ -16,6 +16,7 @@ header h2 {
     color: whitesmoke;
     padding: 0.3em;
 }
+input[type="text"]:focus,textarea { outline: none; }
 /* Popup */
 .hidden { display: none !important; }
 .visible { display: block !important; }
@@ -138,6 +139,11 @@ footer {
     cursor: pointer;
     transition: 0.5s;
 }
+a, a:visited {
+    color: inherit; /* Eredita il colore del testo circostante */
+    text-decoration: none; /* Rimuove anche la sottolineatura, se vuoi */
+}
+
  /* Landscape */
  @media only screen and (orientation: landscape) {
     #block { padding: 5em; }
