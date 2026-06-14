@@ -14,7 +14,7 @@ Ogni contenuto può essere filtrato velocemente tramite apposita barra di ricerc
 
 ## Back End
 Questa è la parte visibile all'amministratore. Consente di modificare, aggiungere, rimuovere ogni contenuto.
-Un utente di test è già memorizzato nel database.
+Un utente di test è già memorizzato nel database. Il controllo delle credenziali funziona tramite le funzioni php password_hash e password_verify
 
 <b>Username = prova</b><br>
 <b>Password = prova</b>
@@ -24,4 +24,5 @@ Un utente di test è già memorizzato nel database.
 <li>Eliminando una materia verranno eliminati anche tutti gli argomenti e i termini ad essa associata</li>
 <li>Eliminando un argomento verranno rimossi anche tutti i termini ad esso associato, ma non la materia a cui l'argomento era collegato</li>
 <li>Eliminando un termine verrà rimossa solo la sua definizione</li>
+<li>Le tabelle hanno vincoli sull'inserimento e aggiornamento dei record, inoltre sono case insensitive. Esempio: inserire la materia "italiano" se è già presente "Italiano" restituirà un errore in quanto stiamo parlando sempre della stessa materia</li>
 </ul>
